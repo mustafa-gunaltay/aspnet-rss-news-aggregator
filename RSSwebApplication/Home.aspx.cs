@@ -99,20 +99,40 @@ namespace RSSwebApplication
             ArrayList newsList = (ArrayList)Session["allNews"];
             string selectedCategory = ddlCategory.SelectedValue;
 
-            string html = "<h3>Haber Listesi</h3>";
+            string html = "<div class='news-grid'>";
+
             foreach (News news in newsList)
             {
                 if (selectedCategory != "Tüm Kategoriler" && news.Category != selectedCategory)
                     continue;
 
-                html += $"<div style='margin-bottom:20px; border-bottom:1px solid #ccc;'>"
-                      + $"<h4>{news.Title}</h4>"
-                      + $"<p><strong>Tarih:</strong> {news.PubDate} | <strong>Yazar:</strong> {news.Author}</p>"
-                      + $"<img src='{news.ImageUrl}' width='150'/><br/>"
-                      + $"<p>{news.Description.Substring(0, Math.Min(200, news.Description.Length))}...</p>"
-                      + $"<p><a href='NewsDetail.aspx?id={news.NewsID}'>Haberi detaylı oku →</a></p>"
-                      + $"</div>";
+                // Görseli kontrol et, eğer yoksa veya boşsa varsayılan görsel kullan
+                string imageUrl = !string.IsNullOrEmpty(news.ImageUrl) ?
+                    news.ImageUrl :
+                    "https://via.placeholder.com/350x200?text=Görsel+Yok";
+
+                // Özeti ayarla (200 karakterle sınırla)
+                string shortDesc = news.Description.Length > 200 ?
+                    news.Description.Substring(0, 200) + "..." :
+                    news.Description;
+
+                html += $@"
+        <div class='news-card'>
+            <img src='{imageUrl}' alt='{news.Title}' class='news-img' onerror='this.src=""https://via.placeholder.com/350x200?text=Görsel+Yok""' />
+            <div class='news-content'>
+                <span class='news-category'>{news.Category}</span>
+                <h3 class='news-title'>{news.Title}</h3>
+                <div class='news-meta'>
+                    <span><i class='fas fa-user'></i> {news.Author}</span>
+                    <span><i class='fas fa-calendar'></i> {news.PubDate}</span>
+                </div>
+                <p class='news-description'>{shortDesc}</p>
+                <a href='NewsDetail.aspx?id={news.NewsID}' class='read-more'>Devamını Oku <i class='fas fa-arrow-right'></i></a>
+            </div>
+        </div>";
             }
+
+            html += "</div>";
 
             ltNewsList.Text = html;
         }

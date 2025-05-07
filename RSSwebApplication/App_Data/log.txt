@@ -22,3 +22,21 @@
    at System.Web.HttpResponse.AbortCurrentThread()
    at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
    at RSSwebApplication.RSSparsing.Page_Load(Object sender, EventArgs e) in C:\Visual Studio Projects\ASP .NET Web Forms Projects\RSSwebApplication\RSSparsing.aspx.cs:line 89
+2025-05-07 23:11:22.9751 Error RSSparsing.aspx sayfasında beklenmeyen bir hata oluştu. System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at RSSwebApplication.RSSparsing.Page_Load(Object sender, EventArgs e) in C:\Visual Studio Projects\ASP .NET Web Forms Projects\RSSwebApplication\RSSparsing.aspx.cs:line 89
+2025-05-07 23:16:43.9870 Error RSSparsing.aspx sayfasında beklenmeyen bir hata oluştu. System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at RSSwebApplication.RSSparsing.Page_Load(Object sender, EventArgs e) in C:\Visual Studio Projects\ASP .NET Web Forms Projects\RSSwebApplication\RSSparsing.aspx.cs:line 89
+2025-05-07 23:19:00.1540 Error RSSparsing.aspx sayfasında beklenmeyen bir hata oluştu. System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at RSSwebApplication.RSSparsing.Page_Load(Object sender, EventArgs e) in C:\Visual Studio Projects\ASP .NET Web Forms Projects\RSSwebApplication\RSSparsing.aspx.cs:line 89

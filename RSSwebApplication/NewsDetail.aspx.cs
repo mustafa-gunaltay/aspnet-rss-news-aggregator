@@ -48,7 +48,6 @@ namespace RSSwebApplication
             {
                 string dbPath = Server.MapPath("~/App_Data/RSSdb.accdb");
                 string connStr = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={dbPath};Persist Security Info=False;";
-
                 using (OleDbConnection conn = new OleDbConnection(connStr))
                 {
                     conn.Open();
@@ -67,15 +66,39 @@ namespace RSSwebApplication
                                 string pubDate = reader["PubDate"].ToString();
                                 string imageUrl = reader["ImageUrl"].ToString();
 
-                                ltNewsDetail.Text = $"<h2>{title}</h2>" +
-                                    $"<p><strong>Kategori:</strong> {category} | <strong>Yazar:</strong> {author}</p>" +
-                                    $"<p><strong>Tarih:</strong> {pubDate}</p>" +
-                                    $"<img src='{imageUrl}' width='300'/><br/><br/>" +
-                                    $"<p>{desc}</p>";
+                                // Görseli kontrol et
+                                if (string.IsNullOrEmpty(imageUrl))
+                                {
+                                    imageUrl = "https://via.placeholder.com/800x400?text=Görsel+Yok";
+                                }
+
+                                ltNewsDetail.Text = $@"
+                        <div class='article-header'>
+                            <h1 class='article-title'>{title}</h1>
+                            <div class='article-meta'>
+                                <div>
+                                    <span class='article-category'>{category}</span>
+                                </div>
+                                <div class='article-details'>
+                                    <span><i class='fas fa-user'></i> {author}</span>
+                                    <span><i class='fas fa-calendar'></i> {pubDate}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <img src='{imageUrl}' alt='{title}' class='article-featured-img' onerror='this.src=""https://via.placeholder.com/800x400?text=Görsel+Yok""' />
+                        <div class='article-content'>
+                            <p>{desc}</p>
+                        </div>";
                             }
                             else
                             {
-                                ltNewsDetail.Text = "Haber bulunamadı.";
+                                ltNewsDetail.Text = @"
+                        <div class='article-header'>
+                            <h1 class='article-title'>Haber Bulunamadı</h1>
+                        </div>
+                        <div class='article-content'>
+                            <p>Aradığınız haber içeriği sistemde bulunamadı.</p>
+                        </div>";
                                 logger.Warn($"NewsID={newsId} veritabanında bulunamadı.");
                             }
                         }
@@ -85,7 +108,13 @@ namespace RSSwebApplication
             catch (Exception ex)
             {
                 logger.Error(ex, $"NewsID={newsId} için detay yüklenirken hata oluştu.");
-                ltNewsDetail.Text = "Haber detayları yüklenemedi.";
+                ltNewsDetail.Text = @"
+        <div class='article-header'>
+            <h1 class='article-title'>Hata Oluştu</h1>
+        </div>
+        <div class='article-content'>
+            <p>Haber detayları yüklenirken bir sorun oluştu. Lütfen daha sonra tekrar deneyiniz.</p>
+        </div>";
             }
         }
     }
