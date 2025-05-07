@@ -1,0 +1,24 @@
+2025-05-07 21:17:01.3555 Error RSSparsing.aspx sayfasında beklenmeyen bir hata oluştu. System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at RSSwebApplication.RSSparsing.Page_Load(Object sender, EventArgs e) in C:\Visual Studio Projects\ASP .NET Web Forms Projects\RSSwebApplication\RSSparsing.aspx.cs:line 89
+2025-05-07 23:04:11.9202 Error RSSparsing.aspx sayfasında beklenmeyen bir hata oluştu. System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at RSSwebApplication.RSSparsing.Page_Load(Object sender, EventArgs e) in C:\Visual Studio Projects\ASP .NET Web Forms Projects\RSSwebApplication\RSSparsing.aspx.cs:line 89
+2025-05-07 23:06:00.7021 Error RSSparsing.aspx sayfasında beklenmeyen bir hata oluştu. System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at RSSwebApplication.RSSparsing.Page_Load(Object sender, EventArgs e) in C:\Visual Studio Projects\ASP .NET Web Forms Projects\RSSwebApplication\RSSparsing.aspx.cs:line 89
+2025-05-07 23:06:10.2065 Error RSSparsing.aspx sayfasında beklenmeyen bir hata oluştu. System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at RSSwebApplication.RSSparsing.Page_Load(Object sender, EventArgs e) in C:\Visual Studio Projects\ASP .NET Web Forms Projects\RSSwebApplication\RSSparsing.aspx.cs:line 89
